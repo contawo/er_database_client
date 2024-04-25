@@ -1,0 +1,118 @@
+@startuml Testing
+!theme reddress-darkblue
+
+' Student entity
+note "Student entity" as stdNote
+rectangle Student as std
+
+' Student attributes
+(_Student no._)/ as stdNum
+(PS no.) as psNum
+(Department) as stdDep
+(Course) as stdCo
+
+' Connecting students
+std .. stdNote
+std -- stdNum
+std -- psNum
+std -- stdDep
+std -- stdCo
+
+' Student personal details
+rectangle "Personal Details" as pd
+
+' Student personal details attributes
+(Home address) as pdAdd
+(Cell no.) as pdCell
+(D.O.B) as pdDob
+(Name) as pdN
+
+' Connecting personal details
+pd -- pdAdd
+pd -- pdCell
+pd -- pdDob
+pd -- pdN
+
+' Student results
+rectangle "Student results" as stdr
+
+' Student results attributes
+(Course name) as stdrCo
+(Course code) as stdrCode
+(Year of Study) as stdrYear
+(Mark) as stdrMark
+
+' Connecting results
+stdr -- stdrCo
+stdr -- stdrCode
+stdr -- stdrYear
+stdr -- stdrMark
+
+' Student relationship
+circle ISA as stdRelation
+
+std ---- stdRelation
+stdRelation -- stdr
+stdRelation -- pd
+
+' BSC Major
+rectangle "Bsc Major" as bsc
+
+' Bsc Major attributes
+(_ID_)/ as bscId
+(Name) as bscName
+(Location) as bscLoc
+(Cell number) as bscNo
+(Fax number) as bscFax
+
+' Connecting Bsc Major
+bsc -- bscId
+bsc -- bscName
+bsc -- bscLoc
+bsc -- bscNo
+bsc -- bscFax
+
+' Relationship between Student or Bsc 
+hexagon Interested as relStuBsc
+std <-- relStuBsc
+relStuBsc -- bsc
+
+' Courses 
+rectangle Courses as csc
+
+' Courses attributes
+(_CourseId_)/ as cscId
+(Course name) as cscName
+(Course code) as cscCode
+(Year of study) as cscYear
+(NQF Credits) as cscCredits
+(NQF Level) as cscLevel
+(Compulsory) as cscComp
+(Convener) as cscConv
+
+' Connecting Courses
+csc -- cscId
+csc -- cscName
+csc -- cscCode
+csc -- cscYear
+csc -- cscCredits
+csc -- cscLevel
+csc -- cscComp
+csc -- cscConv
+
+' Courses prerequisites (Multivariable)
+rectangle Prerequisites as precsc
+
+' Course prerequisites attributes
+(_CourseId_)/ as precscId
+(Prerequisite) as precscP
+
+' Connecting
+precsc -- precscId
+precsc -- precscP
+
+csc -- precsc
+
+' Cources and 
+
+@enduml
