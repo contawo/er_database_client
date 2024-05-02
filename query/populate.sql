@@ -3,17 +3,17 @@ VALUES
     ('MLGATH007', 1, 'Science', 'Computer Science'),
     ('NFMZAN005', 2, 'Engineering', 'Electrical Engineering'),
     ('MLRSON003', 3, 'Arts', 'English Literature');
-INSERT INTO Personal (DOB, CellNo, Address, FirstName, LastName)
+INSERT INTO Personal (Student No,DOB, CellNo, Address, FirstName, LastName)
 VALUES
-    ('1998-05-15', '1234567890', '123 Main St, City', 'Athule', 'Malgas'),
-    ('1997-10-20', '0987654321', '456 Elm St, Town', 'Zandile' ,'Nofemela'),
-    ('1999-03-10', '9876543210', '789 Oak St, Village', 'Sone', 'Mulara');
+    ('MLGATH007','1998-05-15', '1234567890', '123 Main St, City', 'Athule', 'Malgas'),
+    ('NFMZAN005','1997-10-20', '0987654321', '456 Elm St, Town', 'Zandile' ,'Nofemela'),
+    ('MLRSON003','1999-03-10', '9876543210', '789 Oak St, Village', 'Sone', 'Mulara');
 
-INSERT INTO AcademicRecord (CourseName, CourseCode, Results, GPA, YearOfStudy)
+INSERT INTO AcademicRecord (StudentNo,CourseName, CourseCode, Results, GPA, YearOfStudy)
 VALUES
-    ('Computer Science', 'CSC2001F', 'Pass', 3.5, 2),
-    ('Electrical Engineering', 'EEE2041F', 'Pass', 3.2, 3),
-    ('English Literature', 'LLS1010F', 'Pass', 3.8, 1);
+    ('MLGATH007','Computer Science', 'CSC2001F', 'Pass', 3.5, 2),
+    ('NFMZAN005','Electrical Engineering', 'EEE2041F', 'Pass', 3.2, 3),
+    ('MLRSON003','English Literature', 'LLS1010F', 'Pass', 3.8, 1);
 
 INSERT INTO BscMajor (MajorCode, Name, Email, Office)
 VALUES
