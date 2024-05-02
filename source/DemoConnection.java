@@ -1,7 +1,7 @@
 package source;
 
-import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class DemoConnection {
     public static void main(String[] args) {
@@ -17,7 +17,7 @@ public class DemoConnection {
         try {
             SQLConnection connect = new SQLConnection(url, user, password);
             connect.queryDatabase(query);
-            ResultSet results = connect.getResults();
+            ArrayList<String> results = connect.getResults();
 
             System.out.println("Results");
             System.out.println(results);

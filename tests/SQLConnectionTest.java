@@ -1,7 +1,7 @@
 package tests;
 
-import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import org.junit.*;
 
@@ -22,7 +22,7 @@ public class SQLConnectionTest {
         try {
             SQLConnection connect = new SQLConnection(url, user, password);
             connect.queryDatabase(query);
-            ResultSet results = connect.getResults();
+            ArrayList<String> results = connect.getResults();
 
             Assert.assertNotNull(results);
         } catch (SQLException err) {

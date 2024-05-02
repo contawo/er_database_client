@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  * SQLConnection
@@ -15,7 +16,7 @@ public class SQLConnection {
     private String user = "";
     private String password = "";
 
-    private ResultSet results;
+    private ArrayList<String> results = new ArrayList<>();
 
     /**
      * SQLConnection constructor
@@ -42,7 +43,11 @@ public class SQLConnection {
 
         Connection connection = DriverManager.getConnection(this.url, this.user, this.password);
         Statement statement = connection.prepareStatement(query);
-        this.results = statement.executeQuery(query);
+        ResultSet results = statement.executeQuery(query);
+
+        while(results.next()) {
+            this.results.add(results.getString(2));
+        }
 
         connection.close();
     }
@@ -52,7 +57,7 @@ public class SQLConnection {
      * - This method returns the results obtained from the database
      * @return : results
      */
-    public ResultSet getResults() {
+    public ArrayList<String> getResults() {
         return results;
     }
 }
